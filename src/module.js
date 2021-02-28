@@ -3,3 +3,5 @@ async function start(){
 }
 
 start().then(console.log);
+
+console.log(hi);
