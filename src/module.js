@@ -1,5 +1,5 @@
 async function start(){
-    await Promise.resolve();
+    return await Promise.resolve("hello 221!");
 }
 
-start();
+start().then(console.log);
