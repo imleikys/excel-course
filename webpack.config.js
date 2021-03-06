@@ -66,7 +66,7 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: filename('css'),
+      filename: 'bandle.[hash].css',
     }),
     new LiveReloadPlugin(),
   ],
@@ -75,12 +75,12 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
         ],
+
+
       },
       {
         test: /\.m?js$/,
