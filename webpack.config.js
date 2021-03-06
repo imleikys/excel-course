@@ -79,8 +79,6 @@ module.exports = {
           'css-loader',
           'sass-loader',
         ],
-
-
       },
       {
         test: /\.m?js$/,
