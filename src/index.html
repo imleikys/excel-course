@@ -11,158 +11,32 @@
 </head>
 <body>
     <div id="app">
-        <div class="excel">
-
-            <div class="excel__header">
-                <input type="text" class="excel__header-input" value="Новая таблица"></input>
-                <div class="excel__header-btns">
-                    <div class="button">
-                        <i class="material-icons">delete</i>
-                    </div>
-                    <div class="button">
-                        <i class="material-icons">exit_to_app</i>
-                    </div>
+       <div class="db">
+           <div class="db__header">
+                <h1 class="db__header-title">Excel Dashboard</h1>
+           </div>
+            <div class="db__new">
+                <div class="db__view">
+                    <a href="#" class="db__new-newfile">Новая <br> таблица</a>
                 </div>
-            </div>
-
-            <div class="excel__toolbar">
-                <div class="button">
-                    <i class="material-icons">format_align_left</i>
+           </div>
+           <div class="db__table db__view">
+                <div class="db__list-header">
+                    <span>Название</span>
+                    <span>Дата открытия</span>
                 </div>
-                <div class="button">
-                    <i class="material-icons">format_align_center</i>
-                </div>
-                <div class="button">
-                    <i class="material-icons">format_align_right</i>
-                </div>
-                <div class="button">
-                    <i class="material-icons">format_bold</i>
-                </div>
-                <div class="button">
-                    <i class="material-icons">format_italic</i>
-                </div>
-                <div class="button">
-                    <i class="material-icons">format_underlined</i>
-                </div>
-            </div>
-
-            <div class="excel__formula">
-                <div class="excel__formula-info">
-                    f(x)
-                </div>
-                <div class="excel__formula-input" contenteditable spellcheck="false">
-
-                </div>
-            </div>
-
-            <div class="excel__table">
-                <div class="excel__table-row">
-                    <div class="excel__table-row-info"></div>
-                    <div class="excel__table-row-data">
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-                        <div class="excel__table-row-column">
-                            A
-                        </div>
-                        <div class="excel__table-row-column">
-                            B
-                        </div>
-                        <div class="excel__table-row-column">
-                            C
-                        </div>
-
-                    </div>
-                </div>
-                <div class="excel__table-row">
-                    <div class="excel__table-row-info">1</div>
-                    <div class="excel__table-row-data">
-                        <div class="cell selected" contenteditable spellcheck="false">A1</div>
-                        <div class="cell" contenteditable spellcheck="false">A2</div>
-                        <div class="cell" contenteditable spellcheck="false">A3</div>
-                    </div>
-                </div>
-                <div class="excel__table-row">
-                    <div class="excel__table-row-info">2</div>
-                    <div class="excel__table-row-data">
-                        <div class="cell" contenteditable spellcheck="false">A1</div>
-                        <div class="cell" contenteditable spellcheck="false">A2</div>
-                        <div class="cell" contenteditable spellcheck="false">A3</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <ul class="db__list">
+                    <li class="db__record">
+                        <a href="#">Таблица номер 1</a>
+                        <strong>12.06.2020</strong>
+                    </li>
+                    <li class="db__record">
+                        <a href="#">Таблица номер 2</a>
+                        <strong>12.06.2020</strong>
+                    </li>
+                </ul>
+           </div>
+       </div>
     </div>
 </body>
 </html>
