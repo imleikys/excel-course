@@ -1,8 +1,7 @@
-import { DOMListener } from "@core/DOMListener";
+import {DOMListener} from '@core/DOMListener';
 
 export class ExcelComponent extends DOMListener {
-
-    toHTML() {
-        return '';
-    }
+  toHTML() {
+    return '';
+  }
 }
