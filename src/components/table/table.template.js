@@ -4,10 +4,12 @@ const CODES = {
   Z: 90,
 };
 
-function createCell(_, index) {
-  return `
-  <div class="cell" contenteditable spellcheck="false" data-col="${index}"></div>
-  `;
+function createCell(row) {
+  return function(_, col) { 
+    return `
+     <div class="cell" contenteditable spellcheck="false" data-col="${col}" data-id="${row}:${col}"></div>
+    `;
+  };
 }
 
 function createColumn(col, index) {
@@ -50,8 +52,10 @@ export function createTable(rowsCount = 40) {
   for (let i = 0; i < rowsCount; i++) {
     const cells = new Array(colsCount)
       .fill('')
-      .map(createCell)
+      // .map((_, col) => createCell(i, col))
+      .map(createCell(i))
       .join('');
+
     rows.push(createRow(i + 1, cells));
   }
   
