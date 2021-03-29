@@ -65,6 +65,18 @@ class Dom {
     });
   }
 
+  id(parse) {
+    if (parse) {
+      const parsed = this.id().split(':');
+      return {
+        row: +parsed[0],
+        col: +parsed[0],
+      };
+    }
+
+    return this.data.id;
+  }
+
   addClass(classname) {
     this.$el.classList.add(classname);
   }
