@@ -4,6 +4,9 @@ export class ExcelComponent extends DOMListener {
   constructor($root, options = {}) {
     super($root, options.listeners);
     this.name = options.name || '';
+    this.emmiter = options.emmiter;
+
+    console.log(options);
 
     this.prepare();
   }
