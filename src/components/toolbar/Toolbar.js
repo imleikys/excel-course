@@ -6,6 +6,7 @@ export class Toolbar extends ExcelComponent {
     super($root, {
       name: 'Toolbar',
       listeners: [],
+      ...options,
     });
   }
 
