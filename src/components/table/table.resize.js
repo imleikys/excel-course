@@ -49,7 +49,8 @@ export function resizeHandler($root, event) {
 
       resolve({
         value,
-        id: type === 'column' ? $parent.data.col : null,
+        type,
+        id: type === 'column' ? $parent.data.col : $parent.data.row,
       });
 
       $target.css({

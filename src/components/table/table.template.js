@@ -5,6 +5,7 @@ const CODES = {
 };
 
 const DEFAULT_WIDTH = 120;
+const DEFAULT_HEIGHT = 24;
 
 function getWidth(state, index) {
   return (state[index] || DEFAULT_WIDTH) + 'px';
@@ -18,11 +19,17 @@ function withWidthFrom(state) {
   };
 }
 
+function getHeight(state, index) {
+  return (state[index] || DEFAULT_HEIGHT) + 'px';
+}
+
 function createCell(state, row) {
   return function(_, col) { 
+    const id = `${row}:${col}`;
+    const data = state.dataState[id];
     const width = getWidth(state.colState, col);
     return `
-     <div class="cell" contenteditable spellcheck="false" data-col="${col}" data-id="${row}:${col}" data-type="cell" style="width: ${width}"></div>
+     <div class="cell" contenteditable spellcheck="false" data-col="${col}" data-id="${id}" data-type="cell" style="width: ${width}">${data || ''}</div>
     `;
   };
 }
@@ -36,11 +43,12 @@ function createColumn({col, index, width}) {
   `;
 }
 
-function createRow(index, content) {
+function createRow(index, content, state) {
   const resizer = index ? '<div class="row-resize" data-resize="row"></div>' : '';
+  const height = getHeight(state, index);
 
   return `
-  <div class="excel__table-row" data-type="resizable">
+  <div class="excel__table-row" data-type="resizable" data-row="${index}" style="height: ${height}">
     <div class="excel__table-row-info">
       ${index ? index : ''}
       ${resizer}
@@ -65,7 +73,7 @@ export function createTable(rowsCount = 40, state = {}) {
     .map(createColumn)
     .join('');
 
-  rows.push(createRow(null, cols));
+  rows.push(createRow(null, cols, { }));
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount)
       .fill('')
@@ -73,7 +81,7 @@ export function createTable(rowsCount = 40, state = {}) {
       .map(createCell(state, row))
       .join('');
 
-    rows.push(createRow(row + 1, cells));
+    rows.push(createRow(row + 1, cells, state.rowState));
   }
   
   return rows.join('');
