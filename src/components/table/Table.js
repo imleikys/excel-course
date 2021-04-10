@@ -88,7 +88,6 @@ export class Table extends ExcelComponent {
   updateTextInStore(value) {
     this.$dispatch(actions.changeText({
       id: this.selection.current.id(),
-      value: $(event.target).text(),
     }));
   }
 
