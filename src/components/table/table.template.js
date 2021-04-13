@@ -1,3 +1,6 @@
+import {toInlineStyles} from '@/core/utils';
+import {defaultStyles} from '@/constants';
+import {parse} from '@/core/parse';
 
 const CODES = {
   A: 65,
@@ -28,8 +31,13 @@ function createCell(state, row) {
     const id = `${row}:${col}`;
     const data = state.dataState[id];
     const width = getWidth(state.colState, col);
+    const styles = toInlineStyles({
+      ...defaultStyles,
+      ...state.stylesState[id],
+    });
+
     return `
-     <div class="cell" contenteditable spellcheck="false" data-col="${col}" data-id="${id}" data-type="cell" style="width: ${width}">${data || ''}</div>
+     <div class="cell" contenteditable spellcheck="false" data-value="${data || ''}" data-col="${col}" data-id="${id}" data-type="cell" style="${styles}; width: ${width}">${parse(data) || ''}</div>
     `;
   };
 }

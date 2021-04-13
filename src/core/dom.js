@@ -14,15 +14,13 @@ class Dom {
   }
   
   text(text) {
-    if (typeof text === 'string') {
+    if (typeof text !== 'undefined') {
       this.$el.textContent = text;
       return this;
     }
-    
-    if (this.$el.tagName.toLowerCase === 'input') {
+    if (this.$el.tagName.toLowerCase() === 'input') {
       return this.$el.value.trim();
     }
-    
     return this.$el.textContent.trim();
   }
 
@@ -41,6 +39,15 @@ class Dom {
 
   find(selector) {
     return $(this.$el.querySelector(selector));
+  }
+
+  attr(name, value) {
+    if (value) {
+      this.$el.setAttribute(name, value);
+      return this;
+    }
+
+    return this.$el.getAttribute(name);
   }
 
   append(node) {
@@ -76,6 +83,13 @@ class Dom {
     Object.keys(styles).forEach((key) => {
       this.$el.style[key] = styles[key];
     });
+  }
+
+  getStyles(styles = []) {
+    return styles.reduce((result, style) => {
+      result[style] = this.$el.style[style];
+      return result;
+    }, {});
   }
 
   id(parse) {
