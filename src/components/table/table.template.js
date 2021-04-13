@@ -63,7 +63,6 @@ function toChar(_, index) {
 }
 
 export function createTable(rowsCount = 40, state = {}) {
-  console.log(state);
   const colsCount = CODES.Z - CODES.A + 1;
   const rows = [];
   const cols = new Array(colsCount)
@@ -77,7 +76,6 @@ export function createTable(rowsCount = 40, state = {}) {
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount)
       .fill('')
-      // .map((_, col) => createCell(i, col))
       .map(createCell(state, row))
       .join('');
 
