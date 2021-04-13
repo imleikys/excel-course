@@ -11,6 +11,8 @@
         "no-trailing-spaces": 0,
         "max-len": "off",
         "indent": "off",
+        "no-case-declarations": "off",
+        "no-invalid-this": "off",
     },
     "extends": ["eslint:recommended", "google"]
 }
